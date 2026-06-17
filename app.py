@@ -1,3 +1,4 @@
+
 """
 Credit Valuation Adjustment (CVA) — Interactive Learning Lab
 The Mountain Path Academy | Prof. V. Ravichandran
@@ -20,7 +21,7 @@ PURPLE = "#6f42c1"; BG_GRAD = "linear-gradient(135deg,#1a2332,#243447,#2a3f5f)"
 
 st.set_page_config(
     page_title="CVA — The Mountain Path Academy",
-    page_icon="📉",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -55,7 +56,7 @@ def mp_card(content, border=GOLD):
     st.html(f'<div style="background:{CARD};border:1px solid {border};border-left:4px solid {border};border-radius:10px;padding:18px 22px;margin:10px 0;"><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.95rem;line-height:1.7;">{content}</div></div>')
 
 def mp_insight(title, content):
-    st.html(f'<div style="background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.3);border-left:4px solid {GOLD};border-radius:10px;padding:16px 20px;margin:12px 0;"><div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin-bottom:6px;">💡 {title}</div><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.92rem;line-height:1.7;">{content}</div></div>')
+    st.html(f'<div style="background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.3);border-left:4px solid {GOLD};border-radius:10px;padding:16px 20px;margin:12px 0;"><div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin-bottom:6px;"> {title}</div><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.92rem;line-height:1.7;">{content}</div></div>')
 
 def mp_warn(title, content):
     st.html(f'<div style="background:rgba(220,53,69,0.08);border:1px solid rgba(220,53,69,0.3);border-left:4px solid {RED};border-radius:10px;padding:16px 20px;margin:12px 0;"><div style="color:{RED};-webkit-text-fill-color:{RED};font-size:0.95rem;font-weight:700;margin-bottom:6px;">⚠️ {title}</div><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.92rem;line-height:1.7;">{content}</div></div>')
@@ -244,9 +245,9 @@ with st.sidebar:
         <div style="color:{LB};-webkit-text-fill-color:{LB};font-size:0.8rem;letter-spacing:3px;margin-top:2px;">ACADEMY</div>
         <div style="height:2px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:10px auto;width:80%;"></div>
         <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.75rem;">World of Finance</div></div>""")
-    st.html(f'<div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin:20px 0 8px 0;">📉 Navigate</div>')
+    st.html(f'<div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin:20px 0 8px 0;"> Navigate</div>')
     page = st.radio("Topic", [
-        "🏠 Home",
+        " Home",
         "1️⃣ CVA Foundations",
         "2️⃣ Credit Triangle & PD",
         "3️⃣ Coupon Bond CVA",
@@ -268,13 +269,13 @@ with st.sidebar:
 # ══════════════════════════════════════════════════════════
 # HOME
 # ══════════════════════════════════════════════════════════
-if page == "🏠 Home":
+if page == " Home":
     st.html(f"""<div style="text-align:center;padding:30px 20px 10px 20px;">
         <div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:0.9rem;letter-spacing:4px;font-weight:600;">THE MOUNTAIN PATH ACADEMY</div>
         <div style="color:white;-webkit-text-fill-color:white;font-family:Playfair Display,serif;font-size:2.8rem;font-weight:800;margin-top:12px;">Credit Valuation Adjustment</div>
         <div style="color:{LB};-webkit-text-fill-color:{LB};font-size:1.15rem;margin-top:10px;">Interactive Learning Lab — CVA from First Principles</div>
         <div style="height:3px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:20px auto;width:50%;"></div>
-        <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.85rem;">Prof. V. Ravichandran &nbsp;|&nbsp; NMIMS Bangalore &nbsp;|&nbsp; BITS Pilani &nbsp;|&nbsp; RV University Bangalore &nbsp;|&nbsp; Goa Institute of Management</div></div>""")
+        <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.85rem;">Prof. V. Ravichandran</div></div>""")
 
     # Hero chart — IRS CVA hump exposure
     df_hero, cva_hero = calc_irs_cva(10_000_000, 5, 200, 0.40, 0.03, 0.05)
@@ -302,23 +303,23 @@ if page == "🏠 Home":
     fig.update_xaxes(title="Year")
     st.plotly_chart(fig, use_container_width=True)
 
-    mp_sub("📋 What You Will Learn")
+    mp_sub(" What You Will Learn")
     topics = [
-        ("📐", "CVA Foundations", "The core formula, key terms (EE, PD, LGD, DF) and how the three ingredients multiply together"),
-        ("🔗", "Credit Triangle", "Convert CDS spreads into default probabilities — the engine behind every CVA calculation"),
-        ("🏦", "Coupon Bond CVA", "Step-by-step exposure roll-back, marginal PDs and the credit spread — exactly as in the Excel workbook"),
+        ("", "CVA Foundations", "The core formula, key terms (EE, PD, LGD, DF) and how the three ingredients multiply together"),
+        ("", "Credit Triangle", "Convert CDS spreads into default probabilities — the engine behind every CVA calculation"),
+        ("", "Coupon Bond CVA", "Step-by-step exposure roll-back, marginal PDs and the credit spread — exactly as in the Excel workbook"),
         ("0️⃣", "Zero-Coupon Bond CVA", "Why a ZCB has a large CVA (≈8%) — exposure rises to par, all principal at risk"),
-        ("📊", "CDS CVA Methods", "Flat EE versus term-structure CDS spreads; investment grade vs high-yield comparison"),
+        ("", "CDS CVA Methods", "Flat EE versus term-structure CDS spreads; investment grade vs high-yield comparison"),
         ("↕️", "IRS CVA", "The exposure hump — √t growth versus (T−t)/T decay — and why swap CVA is small (≈0.24%)"),
-        ("🎛️", "Live Calculator", "Adjust every parameter in real time and watch CVA, survival curves and EL profiles change instantly"),
-        ("💬", "Q&A Practice", "35 questions spanning theory, calculation, pitfalls and comparisons"),
+        ("️", "Live Calculator", "Adjust every parameter in real time and watch CVA, survival curves and EL profiles change instantly"),
+        ("", "Q&A Practice", "35 questions spanning theory, calculation, pitfalls and comparisons"),
     ]
     cols = st.columns(4)
     for i, (icon, title, desc) in enumerate(topics):
         with cols[i % 4]:
             st.html(f'<div style="background:{CARD};border:1px solid rgba(255,215,0,0.15);border-radius:12px;padding:18px;text-align:center;min-height:160px;margin-bottom:8px;"><div style="font-size:1.8rem;margin-bottom:6px;">{icon}</div><div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:0.95rem;font-weight:700;">{title}</div><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.82rem;margin-top:6px;line-height:1.55;">{desc}</div></div>')
 
-    mp_sub("📚 Workbook Illustrations Covered")
+    mp_sub(" Workbook Illustrations Covered")
     ills = [
         ("Coupon Bond CVA (Sheets 1 & 2)", "Discrete compounding, step-by-step expected-loss build-up, 5 steps to credit spread", GRN),
         ("Zero-Coupon Bond CVA (Sheets 3a & 3b)", "Rising pull-to-par exposure; continuous compounding; CVA ≈ 8% of face", TEAL),
@@ -346,7 +347,7 @@ elif page == "1️⃣ CVA Foundations":
                "CVA  =  LGD × Σ [ EE(t) × Marginal PD(t) × DF(t) ]",
                "Sum over all future periods t: expected loss each period, discounted to today")
 
-    mp_sub("🔑 Key Terms — From the Overview Tab")
+    mp_sub(" Key Terms — From the Overview Tab")
     terms = [
         ("Counterparty", "The other side of your trade — the party who owes you money over time.", "A bank you hold a swap or bond with."),
         ("Exposure / EE(t)", "How much the counterparty owes you at a point in time (the amount at risk).", "A swap in your favour by £1L → £1L at risk if they default."),
@@ -362,7 +363,7 @@ elif page == "1️⃣ CVA Foundations":
     for term, defn, ex in terms:
         st.html(f'<div style="background:{CARD};border-left:4px solid {TEAL};border-radius:8px;padding:12px 16px;margin:5px 0;"><div style="display:flex;gap:12px;flex-wrap:wrap;"><div style="min-width:180px;"><div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-weight:700;font-size:0.92rem;">{term}</div></div><div style="flex:1;"><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.88rem;">{defn}</div><div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.8rem;margin-top:3px;font-style:italic;">{ex}</div></div></div></div>')
 
-    mp_sub("🎯 The Three Drivers of CVA")
+    mp_sub(" The Three Drivers of CVA")
     cols = st.columns(3)
     drivers = [
         ("Exposure", "EE(t)", "How much is at risk?", "Reduced by: Netting, Collateral (CSA)", TEAL),
@@ -373,7 +374,7 @@ elif page == "1️⃣ CVA Foundations":
         with col:
             st.html(f'<div style="background:{CARD};border-top:4px solid {clr};border-radius:12px;padding:20px;text-align:center;min-height:210px;"><div style="color:{clr};-webkit-text-fill-color:{clr};font-family:JetBrains Mono,monospace;font-size:1.8rem;font-weight:800;">{symbol}</div><div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin:6px 0;">{name}</div><div style="color:{TXT};-webkit-text-fill-color:{TXT};font-size:0.85rem;">{question}</div><div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.78rem;margin-top:8px;font-style:italic;">{mitigation}</div></div>')
 
-    mp_sub("📘 The Five Steps (Box-Jenkins for CVA)")
+    mp_sub(" The Five Steps (Box-Jenkins for CVA)")
     steps = [
         ("Identify Exposure", "Determine how much is at risk at each future point — this depends on the instrument (bond, swap, loan)."),
         ("Model Default Probability", "Extract marginal PDs from CDS spreads using the credit triangle: λ ≈ s/(1−R). Build survival curve S(t)."),
@@ -404,10 +405,10 @@ elif page == "2️⃣ Credit Triangle & PD":
                "Annual PD ≈ (Spread bps / 10,000) ÷ (1 − R)",
                "Survival to year t = (1 − PD)^t    |    Cumulative default = 1 − Survival")
 
-    mp_sub("🎛️ Interactive: CDS Spread → Survival Curve")
+    mp_sub("️ Interactive: CDS Spread → Survival Curve")
     c1, c2 = st.columns(2)
     with c1:
-        recovery = st.slider("Recovery Rate R", 0.0, 0.80, 0.40, 0.05, format="%.0%%")
+        recovery = st.slider("Recovery Rate R", 0, 80, 40, 5, format="%d%%") / 100
     with c2:
         cds_flat = st.slider("CDS Spread (bps, flat)", 50, 800, 200, 25)
 
@@ -435,7 +436,7 @@ elif page == "2️⃣ Credit Triangle & PD":
     fig.update_xaxes(title="Year")
     st.plotly_chart(fig, use_container_width=True)
 
-    mp_sub("📋 Worked Example — From Excel CDS & PD Tab")
+    mp_sub(" Worked Example — From Excel CDS & PD Tab")
     mp_card(f"<b>Recovery Rate:</b> 40%  |  <b>CDS Spreads:</b> 100, 110, 120, 130, 140 bps (upward-sloping curve)")
     ex_spreads = [100, 110, 120, 130, 140]
     df_pd = calc_cds_pd(ex_spreads, 0.40)
@@ -468,17 +469,17 @@ elif page == "3️⃣ Coupon Bond CVA":
 
     mp_card(f'A risky coupon bond is worth <b>less</b> than an identical risk-free bond. That gap is the CVA. We compute it by rolling out expected loss period by period — exposure × LGD × PD — discounted to today.')
 
-    mp_sub("🎛️ Adjust Parameters")
+    mp_sub("️ Adjust Parameters")
     c1, c2, c3 = st.columns(3)
     with c1:
         face = st.number_input("Face Value (£)", 100.0, 10000.0, 100.0, 100.0)
-        coupon_r = st.slider("Coupon Rate", 0.01, 0.20, 0.05, 0.005, format="%.1f%%")
+        coupon_r = st.slider("Coupon Rate (%)", 1.0, 20.0, 5.0, 0.5, format="%.1f%%") / 100
     with c2:
         tenor = st.slider("Tenor (years)", 1, 10, 5, 1)
-        rfr = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%")
+        rfr = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%") / 100
     with c3:
-        recovery = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%")
-        annual_pd = st.slider("Annual Default Probability", 0.001, 0.20, 0.02, 0.001, format="%.1f%%")
+        recovery = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%") / 100
+        annual_pd = st.slider("Annual Default Probability (%)", 0.1, 20.0, 2.0, 0.1, format="%.1f%%") / 100
 
     df_bond, cva, rf_price, risky_price, risky_yield, credit_spread = calc_coupon_bond_cva(
         face, coupon_r, tenor, face, rfr, recovery, annual_pd)
@@ -489,7 +490,7 @@ elif page == "3️⃣ Coupon Bond CVA":
     with c3m: st.metric("Risky Price (£)", f"£{risky_price:.2f}")
     with c4m: st.metric("Credit Spread (bps)", f"{credit_spread*10000:.1f} bps")
 
-    mp_sub("📊 Step 1 — CVA Table (Expected Loss per Period)")
+    mp_sub(" Step 1 — CVA Table (Expected Loss per Period)")
     fig = make_subplots(rows=1, cols=2, subplot_titles=["Expected Exposure & EL", "PV of Expected Loss (CVA Build-up)"])
     fig.add_trace(go.Bar(x=df_bond["Year"], y=df_bond["Exp Exposure"],
                          name="Exp Exposure (£)", marker_color=TEAL, opacity=0.7), row=1, col=1)
@@ -505,7 +506,7 @@ elif page == "3️⃣ Coupon Bond CVA":
         "PD": "{:.4%}", "EL": "£{:.4f}", "Disc Factor": "{:.4f}", "PV of EL": "£{:.4f}"
     }), use_container_width=True)
 
-    mp_sub("📊 Steps 2–5 — Pricing & Credit Spread")
+    mp_sub(" Steps 2–5 — Pricing & Credit Spread")
     c1c, c2c = st.columns(2)
     with c1c:
         fig2 = go.Figure()
@@ -547,16 +548,16 @@ elif page == "4️⃣ Zero-Coupon Bond CVA":
                "EE(t)  =  Face × exp(−r × (T − t))",
                "The ZCB 'pulls to par' as maturity approaches — EE rises continuously to the full face value")
 
-    mp_sub("🎛️ Adjust Parameters")
+    mp_sub("️ Adjust Parameters")
     c1, c2, c3 = st.columns(3)
     with c1:
         face_zcb = st.number_input("Face Value (£)", 1_000_000, 50_000_000, 10_000_000, 1_000_000)
         maturity_zcb = st.slider("Maturity (years)", 1, 10, 5, 1)
     with c2:
         cds_zcb = st.slider("CDS Spread (bps)", 50, 800, 200, 25)
-        recovery_zcb = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%")
+        recovery_zcb = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%") / 100
     with c3:
-        rfr_zcb = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%")
+        rfr_zcb = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%") / 100
 
     df_zcb, cva_zcb, rf_zcb, risky_zcb, lam_zcb = calc_zcb_cva(face_zcb, maturity_zcb, cds_zcb, recovery_zcb, rfr_zcb)
 
@@ -610,16 +611,16 @@ elif page == "5️⃣ CDS CVA — Flat Exposure":
                "λ = CDS_bps / 10,000 / (1 − R)    →    S(t) = exp(−λt)    →    ΔPD(t) = S(t−1) − S(t)",
                "CVA = LGD × flat_EE × Σ [ ΔPD(t) × DF(t) ]")
 
-    mp_sub("🎛️ Adjust Parameters")
+    mp_sub("️ Adjust Parameters")
     c1, c2, c3 = st.columns(3)
     with c1:
         notional_cds = st.number_input("Notional (USD)", 1_000_000, 100_000_000, 10_000_000, 1_000_000)
         maturity_cds = st.slider("Maturity (years)", 1, 10, 5, 1)
     with c2:
         cds_bps_flat = st.slider("CDS Spread (bps)", 50, 800, 200, 25)
-        recovery_cds = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%")
+        recovery_cds = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%") / 100
     with c3:
-        rfr_cds = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%")
+        rfr_cds = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%") / 100
         ee_pct = st.slider("Flat EE (% of Notional)", 1, 20, 5, 1, help="Simplified flat expected exposure")
 
     flat_ee = notional_cds * ee_pct / 100
@@ -662,12 +663,12 @@ elif page == "6️⃣ CDS CVA — Term Structure":
 
     mp_card(f'A <b>BB-rated (high-yield) counterparty</b> with an upward-sloping CDS curve and an amortising exposure profile (typical of a 5-year interest rate swap). This example shows how weaker credit quality and term-structure effects combine to produce a higher CVA.')
 
-    mp_sub("🎛️ Adjust Parameters")
+    mp_sub("️ Adjust Parameters")
     c1, c2 = st.columns(2)
     with c1:
         notional_hy = st.number_input("Notional (USD)", 1_000_000, 100_000_000, 25_000_000, 1_000_000)
-        recovery_hy = st.slider("Recovery Rate (HY)", 0.0, 0.70, 0.25, 0.05, format="%.0%%")
-        rfr_hy = st.slider("Risk-free Rate", 0.01, 0.15, 0.045, 0.005, format="%.1f%%")
+        recovery_hy = st.slider("Recovery Rate (HY)", 0, 70, 25, 5, format="%d%%") / 100
+        rfr_hy = st.slider("Risk-free Rate (%)", 1.0, 15.0, 4.5, 0.5, format="%.1f%%") / 100
     with c2:
         st.html(f'<div style="color:{LB};-webkit-text-fill-color:{LB};font-size:0.88rem;margin-bottom:8px;font-weight:600;">CDS Spreads by Year (bps) — edit below:</div>')
         spreads_hy = []
@@ -712,7 +713,7 @@ elif page == "6️⃣ CDS CVA — Term Structure":
         "Marginal PD": "{:.4%}", "EE": "${:,.0f}", "Disc Factor": "{:.4f}", "CVA Contrib": "${:,.0f}"
     }), use_container_width=True)
 
-    mp_sub("📊 IG vs HY Comparison (from Excel Sheet 5)")
+    mp_sub(" IG vs HY Comparison (from Excel Sheet 5)")
     compare_data = {
         "Metric": ["Notional", "Recovery Rate", "Avg CDS (bps)", "LGD", "Total CVA"],
         "IG (Sheet 4)": ["$10M", "40%", "200 bps", "60%", f"${cva_ig:,.0f}"],
@@ -738,17 +739,17 @@ elif page == "7️⃣ Interest Rate Swap CVA":
                "EE(t)  =  Notional × Vol × √t × (T−t)/T",
                "√t = time growth factor (uncertainty rises). (T−t)/T = remaining maturity factor (falls to 0 at expiry).")
 
-    mp_sub("🎛️ Adjust Parameters")
+    mp_sub("️ Adjust Parameters")
     c1, c2, c3 = st.columns(3)
     with c1:
         notional_irs = st.number_input("Notional (£)", 1_000_000, 100_000_000, 10_000_000, 1_000_000)
         maturity_irs = st.slider("Swap Maturity (years)", 2, 15, 5, 1)
     with c2:
         cds_irs = st.slider("CDS Spread (bps)", 50, 800, 200, 25)
-        recovery_irs = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%")
+        recovery_irs = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%") / 100
     with c3:
-        rfr_irs = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%")
-        vol_irs = st.slider("Exposure Volatility Factor", 0.01, 0.20, 0.05, 0.005, format="%.1f%%", help="Drives the hump height")
+        rfr_irs = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%") / 100
+        vol_irs = st.slider("Exposure Volatility Factor (%)", 1.0, 20.0, 5.0, 0.5, format="%.1f%%", help="Drives the hump height") / 100
 
     df_irs, cva_irs = calc_irs_cva(notional_irs, maturity_irs, cds_irs, recovery_irs, rfr_irs, vol_irs)
 
@@ -789,7 +790,7 @@ elif page == "7️⃣ Interest Rate Swap CVA":
         "The product peaks around <b>t ≈ T/3</b> for a 5-year swap, typically at year 2 or 3. "
         "This is why IRS CVA is <b>much smaller than ZCB CVA</b> — the exposure is self-limiting.")
 
-    mp_sub("📊 Exposure Shape Comparison")
+    mp_sub(" Exposure Shape Comparison")
     fig4 = go.Figure()
     yr_arr = list(range(1, maturity_irs + 1))
     irs_ee = [notional_irs * vol_irs * math.sqrt(t) * (maturity_irs - t) / maturity_irs / notional_irs * 100 for t in yr_arr]
@@ -812,7 +813,7 @@ elif page == "7️⃣ Interest Rate Swap CVA":
 elif page == "8️⃣ Live CVA Calculator":
     mp_header("Live CVA Calculator", "Full interactive CVA — adjust every parameter in real time")
 
-    tabs = st.tabs(["🏦 General CVA", "📊 Sensitivity Analysis", "🔬 Compare Instruments"])
+    tabs = st.tabs([" General CVA", " Sensitivity Analysis", " Compare Instruments"])
 
     with tabs[0]:
         mp_sub("General CVA — Custom Exposure Profile (linked to CDS & PD tab)")
@@ -820,8 +821,8 @@ elif page == "8️⃣ Live CVA Calculator":
 
         c1, c2 = st.columns([1, 2])
         with c1:
-            rfr_gen = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%", key="gen_rfr")
-            recovery_gen = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%", key="gen_rec")
+            rfr_gen = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%", key="gen_rfr") / 100
+            recovery_gen = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%", key="gen_rec") / 100
             cds_gen = st.slider("CDS Spread (bps, flat)", 50, 800, 200, 25, key="gen_cds")
             st.html(f'<div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.82rem;margin-top:8px;">LGD = {1-recovery_gen:.0%}  |  λ = {(cds_gen/10000)/(1-recovery_gen):.4f}</div>')
         with c2:
@@ -867,9 +868,9 @@ elif page == "8️⃣ Live CVA Calculator":
         c1, c2 = st.columns(2)
         with c1:
             base_cds = st.slider("Base CDS (bps)", 50, 600, 200, 25, key="sa_cds")
-            sa_rec = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%", key="sa_rec")
+            sa_rec = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%", key="sa_rec") / 100
         with c2:
-            sa_rfr = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%", key="sa_rfr")
+            sa_rfr = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%", key="sa_rfr") / 100
             sa_notional = st.number_input("Notional", 1_000_000, 100_000_000, 10_000_000, 1_000_000, key="sa_n")
 
         # CS01 sweep
@@ -911,8 +912,8 @@ elif page == "8️⃣ Live CVA Calculator":
 
         notional_cmp = 10_000_000
         cds_cmp = st.slider("CDS Spread (bps)", 50, 600, 200, 25, key="cmp_cds")
-        recovery_cmp = st.slider("Recovery Rate", 0.0, 0.80, 0.40, 0.05, format="%.0%%", key="cmp_rec")
-        rfr_cmp = st.slider("Risk-free Rate", 0.01, 0.15, 0.03, 0.005, format="%.1f%%", key="cmp_rfr")
+        recovery_cmp = st.slider("Recovery Rate", 0, 80, 40, 5, format="%d%%", key="cmp_rec") / 100
+        rfr_cmp = st.slider("Risk-free Rate (%)", 1.0, 15.0, 3.0, 0.5, format="%.1f%%", key="cmp_rfr") / 100
 
         _, cva_bond_cmp, rf_cmp, _, _, _ = calc_coupon_bond_cva(notional_cmp, 0.05, 5, notional_cmp, rfr_cmp, recovery_cmp, (cds_cmp / 10000) / (1 - recovery_cmp))
         _, cva_zcb_cmp, _, _, _ = calc_zcb_cva(notional_cmp, 5, cds_cmp, recovery_cmp, rfr_cmp)
@@ -949,7 +950,7 @@ elif page == "8️⃣ Live CVA Calculator":
 # ══════════════════════════════════════════════════════════
 elif page == "9️⃣ Q&A Practice":
     mp_header("Q&A Practice — Self-Assessment", "35 questions covering CVA theory, calculation and pitfalls")
-    mp_card(f'💡 Try answering each question in your head <b>before</b> clicking to reveal the answer.')
+    mp_card(f' Try answering each question in your head <b>before</b> clicking to reveal the answer.')
 
     qa_sections = {
         "Foundations (Q1–Q10)": [
@@ -1062,7 +1063,7 @@ st.html(f"""<div style="text-align:center;padding:30px 0 15px 0;margin-top:40px;
     <div style="height:2px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:0 auto 18px auto;width:40%;"></div>
     <div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1.1rem;font-weight:700;">The Mountain Path Academy</div>
     <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.78rem;margin-top:4px;">World of Finance — Prof. V. Ravichandran</div>
-    <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.72rem;margin-top:2px;">NMIMS Bangalore | BITS Pilani | RV University Bangalore | Goa Institute of Management</div>
+
     <div style="margin-top:10px;"><a href="https://themountainpathacademy.com" target="_blank" style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-size:0.82rem;text-decoration:none;font-weight:600;">themountainpathacademy.com</a></div>
     <div style="margin-top:6px;">
         <a href="https://www.linkedin.com/in/trichyravis" target="_blank" style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-size:0.75rem;text-decoration:none;margin-right:12px;">LinkedIn</a>
