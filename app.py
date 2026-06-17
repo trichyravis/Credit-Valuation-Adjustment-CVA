@@ -241,85 +241,138 @@ def calc_general_cva(ee_profile_k, cds_spreads_bps, recovery, rfr):
 # SIDEBAR
 # ══════════════════════════════════════════════════════════
 EMBLEM_SVG = """
-<svg viewBox="0 0 220 270" xmlns="http://www.w3.org/2000/svg" width="150" height="184">
-  <!-- Outer badge shape -->
-  <rect x="3" y="3" width="214" height="264" rx="22" ry="22" fill="#f0ebe0" stroke="#0f2444" stroke-width="5"/>
-  <!-- Inner border -->
-  <rect x="11" y="11" width="198" height="248" rx="16" ry="16" fill="none" stroke="#0f2444" stroke-width="1.8"/>
+<svg viewBox="0 0 300 388" xmlns="http://www.w3.org/2000/svg" width="150" height="194">
 
+  <!-- ═══ ARCH/TOMBSTONE BADGE SHAPE ═══ -->
+  <!-- Cream background fill -->
+  <path d="M8,168 A142,142 0 0,1 292,168 L292,385 L8,385 Z" fill="#f2ede3"/>
+  <!-- Outer border (thick dark navy) -->
+  <path d="M8,168 A142,142 0 0,1 292,168 L292,385 L8,385 Z"
+        fill="none" stroke="#0e2040" stroke-width="7" stroke-linejoin="round"/>
+  <!-- Inner border (thin dark navy) -->
+  <path d="M19,168 A131,131 0 0,1 281,168 L281,381 L19,381 Z"
+        fill="none" stroke="#0e2040" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- ═══ TOP TEXT ═══ -->
   <!-- THE -->
-  <text x="110" y="40" text-anchor="middle" font-family="Georgia,serif" font-size="12"
-        fill="#0f2444" letter-spacing="5" font-weight="normal">THE</text>
-
+  <text x="150" y="53" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="15" fill="#0e2040" letter-spacing="6">THE</text>
   <!-- MOUNTAIN -->
-  <text x="110" y="74" text-anchor="middle" font-family="Georgia,serif" font-size="27"
-        fill="#0f2444" font-weight="bold" letter-spacing="1">MOUNTAIN</text>
+  <text x="150" y="97" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="37" fill="#0e2040" font-weight="bold" letter-spacing="0.5">MOUNTAIN</text>
   <!-- PATH -->
-  <text x="110" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="27"
-        fill="#0f2444" font-weight="bold" letter-spacing="4">PATH</text>
+  <text x="150" y="139" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="37" fill="#0e2040" font-weight="bold" letter-spacing="7">PATH</text>
 
-  <!-- Gold rule left -->
-  <line x1="18" y1="115" x2="68" y2="115" stroke="#b8922a" stroke-width="1.8"/>
-  <!-- ACADEMY -->
-  <text x="110" y="120" text-anchor="middle" font-family="Georgia,serif" font-size="12"
-        fill="#b8922a" letter-spacing="3">ACADEMY</text>
-  <!-- Gold rule right -->
-  <line x1="152" y1="115" x2="202" y2="115" stroke="#b8922a" stroke-width="1.8"/>
+  <!-- ─ ACADEMY ─  (gold) -->
+  <line x1="29"  y1="153" x2="82"  y2="153" stroke="#9a7b3e" stroke-width="1.8"/>
+  <text x="150" y="160" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="13" fill="#9a7b3e" letter-spacing="5" font-weight="600">ACADEMY</text>
+  <line x1="218" y1="153" x2="271" y2="153" stroke="#9a7b3e" stroke-width="1.8"/>
 
-  <!-- ══ MOUNTAIN SCENE ══ -->
-  <!-- Sky gradient rect -->
-  <rect x="12" y="128" width="196" height="80" rx="4" fill="#dde5f0"/>
+  <!-- ═══ MOUNTAIN SCENE ═══ -->
+  <!-- Sky (pale blue) -->
+  <rect x="20" y="169" width="260" height="132" fill="#dce8f5"/>
 
-  <!-- Far mountains (light blue-grey) -->
-  <polygon points="12,208 55,158 90,178 125,148 160,172 202,155 202,208"
-           fill="#8fa8c8" opacity="0.55"/>
+  <!-- LAYER 1 — Farthest mountains (palest) -->
+  <polygon points="20,278 74,234 112,250 150,218 190,244 234,230 270,242 280,236 280,278"
+           fill="#b0c8dc"/>
 
-  <!-- Mid mountains (mid navy) -->
-  <polygon points="12,208 42,172 72,185 100,158 130,175 158,160 188,174 202,190 202,208"
-           fill="#2a4a7a" opacity="0.75"/>
+  <!-- LAYER 2 — Mid mountains (slate blue) -->
+  <polygon points="20,278 58,252 86,264 114,244 150,258 180,244 210,256 242,240 270,250 280,246 280,278"
+           fill="#6588a8"/>
 
-  <!-- Front mountains (dark navy) -->
-  <polygon points="12,208 38,185 58,195 82,168 108,182 135,165 160,180 185,168 202,182 202,208"
-           fill="#0f2444"/>
+  <!-- LAYER 3 — Central peak (dark navy) with snow -->
+  <polygon points="90,278 132,208 156,233 180,216 215,278" fill="#2a4e7e"/>
+  <!-- Snow cap -->
+  <polygon points="132,208 145,229 150,241 140,243 126,233 119,220" fill="#eef3ff" opacity="0.93"/>
+  <polygon points="156,233 165,222 171,235 167,243 157,242"           fill="#eef3ff" opacity="0.80"/>
+  <!-- Flanking side peaks -->
+  <polygon points="20,278 50,254 70,265 92,278" fill="#2a4e7e" opacity="0.72"/>
+  <polygon points="213,278 240,250 262,263 280,278" fill="#2a4e7e" opacity="0.72"/>
 
-  <!-- Pine trees LEFT cluster -->
+  <!-- LAYER 4 — Foreground dark mountains -->
+  <polygon points="20,278 48,258 72,268 98,254 126,267 150,255 174,267 202,253 230,265 258,253 278,263 280,258 280,278"
+           fill="#1a3456"/>
+
+  <!-- ── PINE TREES LEFT (4 clusters, back to front) ── -->
+  <g fill="#1e3a5a">
+    <polygon points="20,278 28,255 36,278"/>
+    <polygon points="22,268 28,251 34,268"/>
+  </g>
+  <g fill="#162e4c">
+    <polygon points="32,278 43,251 54,278"/>
+    <polygon points="35,264 43,247 51,264"/>
+    <polygon points="38,253 43,243 48,253"/>
+  </g>
   <g fill="#0f2444">
-    <polygon points="22,208 28,183 34,208"/>
-    <polygon points="30,208 37,186 44,208"/>
-    <polygon points="18,208 24,188 30,208" opacity="0.7"/>
-    <polygon points="38,208 44,190 50,208" opacity="0.85"/>
+    <polygon points="48,278 61,247 74,278"/>
+    <polygon points="52,262 61,243 70,262"/>
+    <polygon points="56,249 61,239 66,249"/>
+  </g>
+  <g fill="#0d1e3a">
+    <polygon points="66,278 82,243 98,278"/>
+    <polygon points="70,260 82,239 94,260"/>
+    <polygon points="74,245 82,235 90,245"/>
   </g>
 
-  <!-- Pine trees RIGHT cluster -->
+  <!-- ── PINE TREES RIGHT (mirror) ── -->
+  <g fill="#0d1e3a">
+    <polygon points="202,278 218,243 234,278"/>
+    <polygon points="206,260 218,239 230,260"/>
+    <polygon points="210,245 218,235 226,245"/>
+  </g>
   <g fill="#0f2444">
-    <polygon points="170,208 176,183 182,208"/>
-    <polygon points="178,208 185,186 192,208"/>
-    <polygon points="164,208 170,188 176,208" opacity="0.7"/>
-    <polygon points="186,208 192,192 198,208" opacity="0.85"/>
+    <polygon points="226,278 239,247 252,278"/>
+    <polygon points="230,262 239,243 248,262"/>
+    <polygon points="234,249 239,239 244,249"/>
+  </g>
+  <g fill="#162e4c">
+    <polygon points="246,278 257,251 268,278"/>
+    <polygon points="249,264 257,247 265,264"/>
+    <polygon points="252,253 257,243 262,253"/>
+  </g>
+  <g fill="#1e3a5a">
+    <polygon points="264,278 272,255 280,278"/>
+    <polygon points="266,268 272,251 278,268"/>
   </g>
 
-  <!-- Winding path / road -->
-  <path d="M 110 208 C 106 200 98 192 88 180 C 80 170 75 162 72 155"
-        stroke="#c8d8e8" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <!-- ── WINDING PATH (cream) from foreground toward mountains ── -->
+  <!-- Outer edge/shadow -->
+  <path d="M152,286 C148,276 143,266 139,256 C135,246 133,236 134,226"
+        stroke="#c4b694" stroke-width="30" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cream surface -->
+  <path d="M152,286 C148,276 143,266 139,256 C135,246 133,236 134,226"
+        stroke="#ede5cf" stroke-width="20" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
 
-  <!-- Snow caps on main peak -->
-  <polygon points="100,158 108,170 92,170" fill="white" opacity="0.6"/>
+  <!-- Foreground ground strip (dark) -->
+  <rect x="20" y="274" width="260" height="7" fill="#0c1d38" opacity="0.4"/>
 
-  <!-- Ground line -->
-  <line x1="12" y1="208" x2="208" y2="208" stroke="#0f2444" stroke-width="1"/>
+  <!-- Scene-to-text fade: cream overlay at scene bottom -->
+  <rect x="20" y="278" width="260" height="23" fill="#f2ede3"/>
 
-  <!-- Thin separator -->
-  <line x1="22" y1="218" x2="198" y2="218" stroke="#0f2444" stroke-width="0.8" opacity="0.35"/>
+  <!-- ═══ BOTTOM TEXT ═══ -->
+  <!-- Separator line -->
+  <line x1="27" y1="316" x2="273" y2="316" stroke="#0e2040" stroke-width="0.5" opacity="0.2"/>
 
-  <!-- KNOWLEDGE TODAY. -->
-  <text x="110" y="233" text-anchor="middle" font-family="Georgia,serif" font-size="9.5"
-        fill="#0f2444" letter-spacing="1.5">KNOWLEDGE TODAY.</text>
-  <!-- FREEDOM TOMORROW. -->
-  <text x="110" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="9.5"
-        fill="#0f2444" letter-spacing="1.5">FREEDOM TOMORROW.</text>
+  <text x="150" y="339" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="14.5" fill="#0e2040" font-weight="bold" letter-spacing="1.8">KNOWLEDGE TODAY.</text>
+  <text x="150" y="361" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="14.5" fill="#0e2040" font-weight="bold" letter-spacing="1.8">FREEDOM TOMORROW.</text>
 
-  <!-- Small diamond ornament -->
-  <polygon points="110,258 113,262 110,266 107,262" fill="#b8922a"/>
+  <!-- Bottom ornament: gold rule — diamond — gold rule -->
+  <line x1="52"  y1="375" x2="137" y2="375" stroke="#9a7b3e" stroke-width="1.6"/>
+  <polygon points="150,371 154,375 150,379 146,375" fill="#9a7b3e"/>
+  <line x1="163" y1="375" x2="248" y2="375" stroke="#9a7b3e" stroke-width="1.6"/>
+
 </svg>
 """
 
@@ -330,7 +383,7 @@ EMBLEM_SRC  = f"data:image/svg+xml;base64,{_EMBLEM_B64}"
 with st.sidebar:
     st.markdown(f"""
 <div style="text-align:center;padding:18px 0 6px 0;">
-  <img src="{EMBLEM_SRC}" width="148" height="182"
+  <img src="{EMBLEM_SRC}" width="148" height="192"
        style="display:block;margin:0 auto;
               filter:drop-shadow(0 4px 14px rgba(0,0,0,0.55));
               border-radius:6px;"/>
@@ -365,7 +418,7 @@ with st.sidebar:
 if page == " Home":
     st.markdown(f"""
 <div style="text-align:center;padding:30px 20px 10px 20px;">
-  <img src="{EMBLEM_SRC}" width="118" height="145"
+  <img src="{EMBLEM_SRC}" width="118" height="153"
        style="display:block;margin:0 auto 16px auto;
               filter:drop-shadow(0 6px 22px rgba(0,0,0,0.6));
               border-radius:6px;"/>
