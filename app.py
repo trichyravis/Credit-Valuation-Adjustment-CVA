@@ -239,12 +239,97 @@ def calc_general_cva(ee_profile_k, cds_spreads_bps, recovery, rfr):
 # ══════════════════════════════════════════════════════════
 # SIDEBAR
 # ══════════════════════════════════════════════════════════
+EMBLEM_SVG = """
+<svg viewBox="0 0 220 270" xmlns="http://www.w3.org/2000/svg" width="150" height="184">
+  <!-- Outer badge shape -->
+  <rect x="3" y="3" width="214" height="264" rx="22" ry="22" fill="#f0ebe0" stroke="#0f2444" stroke-width="5"/>
+  <!-- Inner border -->
+  <rect x="11" y="11" width="198" height="248" rx="16" ry="16" fill="none" stroke="#0f2444" stroke-width="1.8"/>
+
+  <!-- THE -->
+  <text x="110" y="40" text-anchor="middle" font-family="Georgia,serif" font-size="12"
+        fill="#0f2444" letter-spacing="5" font-weight="normal">THE</text>
+
+  <!-- MOUNTAIN -->
+  <text x="110" y="74" text-anchor="middle" font-family="Georgia,serif" font-size="27"
+        fill="#0f2444" font-weight="bold" letter-spacing="1">MOUNTAIN</text>
+  <!-- PATH -->
+  <text x="110" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="27"
+        fill="#0f2444" font-weight="bold" letter-spacing="4">PATH</text>
+
+  <!-- Gold rule left -->
+  <line x1="18" y1="115" x2="68" y2="115" stroke="#b8922a" stroke-width="1.8"/>
+  <!-- ACADEMY -->
+  <text x="110" y="120" text-anchor="middle" font-family="Georgia,serif" font-size="12"
+        fill="#b8922a" letter-spacing="3">ACADEMY</text>
+  <!-- Gold rule right -->
+  <line x1="152" y1="115" x2="202" y2="115" stroke="#b8922a" stroke-width="1.8"/>
+
+  <!-- ══ MOUNTAIN SCENE ══ -->
+  <!-- Sky gradient rect -->
+  <rect x="12" y="128" width="196" height="80" rx="4" fill="#dde5f0"/>
+
+  <!-- Far mountains (light blue-grey) -->
+  <polygon points="12,208 55,158 90,178 125,148 160,172 202,155 202,208"
+           fill="#8fa8c8" opacity="0.55"/>
+
+  <!-- Mid mountains (mid navy) -->
+  <polygon points="12,208 42,172 72,185 100,158 130,175 158,160 188,174 202,190 202,208"
+           fill="#2a4a7a" opacity="0.75"/>
+
+  <!-- Front mountains (dark navy) -->
+  <polygon points="12,208 38,185 58,195 82,168 108,182 135,165 160,180 185,168 202,182 202,208"
+           fill="#0f2444"/>
+
+  <!-- Pine trees LEFT cluster -->
+  <g fill="#0f2444">
+    <polygon points="22,208 28,183 34,208"/>
+    <polygon points="30,208 37,186 44,208"/>
+    <polygon points="18,208 24,188 30,208" opacity="0.7"/>
+    <polygon points="38,208 44,190 50,208" opacity="0.85"/>
+  </g>
+
+  <!-- Pine trees RIGHT cluster -->
+  <g fill="#0f2444">
+    <polygon points="170,208 176,183 182,208"/>
+    <polygon points="178,208 185,186 192,208"/>
+    <polygon points="164,208 170,188 176,208" opacity="0.7"/>
+    <polygon points="186,208 192,192 198,208" opacity="0.85"/>
+  </g>
+
+  <!-- Winding path / road -->
+  <path d="M 110 208 C 106 200 98 192 88 180 C 80 170 75 162 72 155"
+        stroke="#c8d8e8" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Snow caps on main peak -->
+  <polygon points="100,158 108,170 92,170" fill="white" opacity="0.6"/>
+
+  <!-- Ground line -->
+  <line x1="12" y1="208" x2="208" y2="208" stroke="#0f2444" stroke-width="1"/>
+
+  <!-- Thin separator -->
+  <line x1="22" y1="218" x2="198" y2="218" stroke="#0f2444" stroke-width="0.8" opacity="0.35"/>
+
+  <!-- KNOWLEDGE TODAY. -->
+  <text x="110" y="233" text-anchor="middle" font-family="Georgia,serif" font-size="9.5"
+        fill="#0f2444" letter-spacing="1.5">KNOWLEDGE TODAY.</text>
+  <!-- FREEDOM TOMORROW. -->
+  <text x="110" y="248" text-anchor="middle" font-family="Georgia,serif" font-size="9.5"
+        fill="#0f2444" letter-spacing="1.5">FREEDOM TOMORROW.</text>
+
+  <!-- Small diamond ornament -->
+  <polygon points="110,258 113,262 110,266 107,262" fill="#b8922a"/>
+</svg>
+"""
+
 with st.sidebar:
-    st.html(f"""<div style="text-align:center;padding:15px 0 5px 0;">
-        <div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1.3rem;font-weight:800;letter-spacing:1px;">THE MOUNTAIN PATH</div>
-        <div style="color:{LB};-webkit-text-fill-color:{LB};font-size:0.8rem;letter-spacing:3px;margin-top:2px;">ACADEMY</div>
+    st.html(f"""<div style="text-align:center;padding:18px 0 8px 0;">
+        <div style="display:inline-block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));margin-bottom:8px;">
+            {EMBLEM_SVG}
+        </div>
+        <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.72rem;letter-spacing:1px;margin-top:2px;">World of Finance</div>
         <div style="height:2px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:10px auto;width:80%;"></div>
-        <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.75rem;">World of Finance</div></div>""")
+    </div>""")
     st.html(f'<div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin:20px 0 8px 0;"> Navigate</div>')
     page = st.radio("Topic", [
         " Home",
@@ -271,7 +356,10 @@ with st.sidebar:
 # ══════════════════════════════════════════════════════════
 if page == " Home":
     st.html(f"""<div style="text-align:center;padding:30px 20px 10px 20px;">
-        <div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:0.9rem;letter-spacing:4px;font-weight:600;">THE MOUNTAIN PATH ACADEMY</div>
+        <div style="display:inline-block;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.5));margin-bottom:16px;">
+            {EMBLEM_SVG.replace('width="150" height="184"', 'width="120" height="147"')}
+        </div>
+        <div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:0.9rem;letter-spacing:4px;font-weight:600;margin-top:4px;">THE MOUNTAIN PATH ACADEMY</div>
         <div style="color:white;-webkit-text-fill-color:white;font-family:Playfair Display,serif;font-size:2.8rem;font-weight:800;margin-top:12px;">Credit Valuation Adjustment</div>
         <div style="color:{LB};-webkit-text-fill-color:{LB};font-size:1.15rem;margin-top:10px;">Interactive Learning Lab — CVA from First Principles</div>
         <div style="height:3px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:20px auto;width:50%;"></div>
