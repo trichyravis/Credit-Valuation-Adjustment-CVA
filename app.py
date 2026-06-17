@@ -10,6 +10,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import math
+import base64
 
 # ══════════════════════════════════════════════════════════
 # DESIGN SYSTEM  (identical to ARIMA app)
@@ -322,14 +323,21 @@ EMBLEM_SVG = """
 </svg>
 """
 
+# ── Convert SVG → base64 data URI (works in all Streamlit contexts) ──
+_EMBLEM_B64 = base64.b64encode(EMBLEM_SVG.strip().encode("utf-8")).decode("utf-8")
+EMBLEM_SRC  = f"data:image/svg+xml;base64,{_EMBLEM_B64}"
+
 with st.sidebar:
-    st.html(f"""<div style="text-align:center;padding:18px 0 8px 0;">
-        <div style="display:inline-block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));margin-bottom:8px;">
-            {EMBLEM_SVG}
-        </div>
-        <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.72rem;letter-spacing:1px;margin-top:2px;">World of Finance</div>
-        <div style="height:2px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:10px auto;width:80%;"></div>
-    </div>""")
+    st.markdown(f"""
+<div style="text-align:center;padding:18px 0 6px 0;">
+  <img src="{EMBLEM_SRC}" width="148" height="182"
+       style="display:block;margin:0 auto;
+              filter:drop-shadow(0 4px 14px rgba(0,0,0,0.55));
+              border-radius:6px;"/>
+  <div style="color:{MUTED};font-size:0.72rem;letter-spacing:1px;margin-top:8px;">World of Finance</div>
+  <div style="height:2px;background:linear-gradient(90deg,transparent,{GOLD},transparent);
+              margin:8px auto 0 auto;width:80%;"></div>
+</div>""", unsafe_allow_html=True)
     st.html(f'<div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:1rem;font-weight:700;margin:20px 0 8px 0;"> Navigate</div>')
     page = st.radio("Topic", [
         " Home",
@@ -355,15 +363,22 @@ with st.sidebar:
 # HOME
 # ══════════════════════════════════════════════════════════
 if page == " Home":
-    st.html(f"""<div style="text-align:center;padding:30px 20px 10px 20px;">
-        <div style="display:inline-block;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.5));margin-bottom:16px;">
-            {EMBLEM_SVG.replace('width="150" height="184"', 'width="120" height="147"')}
-        </div>
-        <div style="color:{GOLD};-webkit-text-fill-color:{GOLD};font-family:Playfair Display,serif;font-size:0.9rem;letter-spacing:4px;font-weight:600;margin-top:4px;">THE MOUNTAIN PATH ACADEMY</div>
-        <div style="color:white;-webkit-text-fill-color:white;font-family:Playfair Display,serif;font-size:2.8rem;font-weight:800;margin-top:12px;">Credit Valuation Adjustment</div>
-        <div style="color:{LB};-webkit-text-fill-color:{LB};font-size:1.15rem;margin-top:10px;">Interactive Learning Lab — CVA from First Principles</div>
-        <div style="height:3px;background:linear-gradient(90deg,transparent,{GOLD},transparent);margin:20px auto;width:50%;"></div>
-        <div style="color:{MUTED};-webkit-text-fill-color:{MUTED};font-size:0.85rem;">Prof. V. Ravichandran</div></div>""")
+    st.markdown(f"""
+<div style="text-align:center;padding:30px 20px 10px 20px;">
+  <img src="{EMBLEM_SRC}" width="118" height="145"
+       style="display:block;margin:0 auto 16px auto;
+              filter:drop-shadow(0 6px 22px rgba(0,0,0,0.6));
+              border-radius:6px;"/>
+  <div style="color:{GOLD};font-family:'Playfair Display',serif;font-size:0.9rem;
+              letter-spacing:4px;font-weight:600;">THE MOUNTAIN PATH ACADEMY</div>
+  <div style="color:white;font-family:'Playfair Display',serif;font-size:2.8rem;
+              font-weight:800;margin-top:12px;">Credit Valuation Adjustment</div>
+  <div style="color:{LB};font-size:1.15rem;margin-top:10px;">
+      Interactive Learning Lab — CVA from First Principles</div>
+  <div style="height:3px;background:linear-gradient(90deg,transparent,{GOLD},transparent);
+              margin:20px auto;width:50%;"></div>
+  <div style="color:{MUTED};font-size:0.85rem;">Prof. V. Ravichandran</div>
+</div>""", unsafe_allow_html=True)
 
     # Hero chart — IRS CVA hump exposure
     df_hero, cva_hero = calc_irs_cva(10_000_000, 5, 200, 0.40, 0.03, 0.05)
